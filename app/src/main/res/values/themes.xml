@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.YemekTarifleriKitabi" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Varsayılan font -->
+        <item name="fontFamily">@font/quicksand</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+
+        <!-- Material 3 bileşenlerinin (buton, başlık vb.) fontu ezmesini engeller: -->
+        <item name="textAppearanceBodyLarge">@style/QuicksandTextAppearance</item>
+        <item name="textAppearanceBodyMedium">@style/QuicksandTextAppearance</item>
+
+        <item name="textAppearanceLabelLarge">@style/QuicksandTextAppearance</item>
+    </style>
+
+    <!-- Quicksand için stil tanımı -->
+    <style name="QuicksandTextAppearance" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/quicksand</item>
+        <item name="android:fontFamily">@font/quicksand</item>
+    </style>
+
+    <style name="KoseYuvarlama">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item> <!-- İsteğe göre 16dp, 32dp vb. yapabilirsiniz -->
+    </style>
+
+    <style name="RowImageRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+
+    <style name="Theme.YemekTarifleriKitabi" parent="Base.Theme.YemekTarifleriKitabi" />
+</resources>

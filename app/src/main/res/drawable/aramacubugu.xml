@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#F5EFE6" /> <!-- Tasarımdaki açık krem rengi -->
+    <corners android:radius="24dp" /> <!-- Oval görünüm -->
+</shape>

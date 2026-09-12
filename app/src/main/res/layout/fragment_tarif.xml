@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TarifFragment"
+    android:background="#F9F3EA">
+
+
+    <EditText
+        android:id="@+id/malzemeText"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksandbold"
+        android:hint="Yemek malzemelerini giriniz"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/isimText"
+        app:layout_constraintVertical_bias="0.196" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageView"
+        android:layout_width="311dp"
+        android:layout_height="233dp"
+        android:layout_marginTop="50dp"
+        android:onClick="gorselSec"
+        android:scaleType="centerCrop"
+        android:src="@drawable/screen"
+        app:layout_constraintBottom_toTopOf="@+id/isimText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:shapeAppearanceOverlay="@style/KoseYuvarlama" />
+
+    <EditText
+        android:id="@+id/isimText"
+        android:layout_width="355dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:ems="10"
+        android:fontFamily="@font/quicksand_bold"
+        android:hint="Yemek ismini giriniz"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/malzemeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="122dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/malzemeText"
+        app:layout_constraintVertical_bias="0.116">
+
+
+        <Button
+            android:id="@+id/kaydetbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="#75593A"
+            android:drawableTint="@color/white"
+            android:fontFamily="@font/quicksandbold"
+            android:onClick="kaydet"
+            android:text="Kaydet" />
+
+        <Button
+            android:id="@+id/silbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/quicksandbold"
+            android:onClick="sil"
+            android:text="Sil"
+            android:backgroundTint="#75593A"
+            android:drawableTint="@color/white"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/geritusu"
+        android:layout_width="38dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:onClick="gerigit"
+        android:src="@drawable/baseline_arrow_circle_left_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#75593A" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
