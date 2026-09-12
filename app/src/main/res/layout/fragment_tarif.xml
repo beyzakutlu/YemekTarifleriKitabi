@@ -11,20 +11,22 @@
     <EditText
         android:id="@+id/malzemeText"
         android:layout_width="355dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="100dp"
         android:ems="10"
         android:fontFamily="@font/quicksandbold"
+        android:gravity="top|start"
         android:hint="Yemek malzemelerini giriniz"
-        android:inputType="text"
+        android:imeOptions="actionNone"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/isimText"
         app:layout_constraintVertical_bias="0.196" />
-
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView"
@@ -44,7 +46,7 @@
     <EditText
         android:id="@+id/isimText"
         android:layout_width="355dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:ems="10"
