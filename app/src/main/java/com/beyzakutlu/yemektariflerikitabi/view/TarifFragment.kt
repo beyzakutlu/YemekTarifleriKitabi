@@ -20,6 +20,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.Navigation
 import androidx.room.Room
 import com.beyzakutlu.yemektariflerikitabi.databinding.FragmentTarifBinding
@@ -72,6 +74,46 @@ class TarifFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val scrollView = view as? android.widget.ScrollView
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+            val systemBarInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            v.setPadding(
+                systemBarInsets.left,
+                systemBarInsets.top,
+                systemBarInsets.right,
+                maxOf(imeInsets.bottom, systemBarInsets.bottom)
+            )
+
+            // Klavye açıldıysa, odaklanılan alanı görünür yapmak için scroll et
+            if (imeInsets.bottom > 0) {
+                v.post {
+                    val focusedView = requireActivity().currentFocus
+                    focusedView?.let { fv ->
+                        val rect = android.graphics.Rect()
+                        fv.getDrawingRect(rect)
+                        scrollView?.offsetDescendantRectToMyCoords(fv, rect)
+                        scrollView?.smoothScrollTo(0, rect.bottom - (scrollView.height - imeInsets.bottom) + 50)
+                    }
+                }
+            }
+
+            insets
+        }
+
+        // EditText'lere focus değiştiğinde de scroll tetikle (kullanıcı alanlar arasında geçiş yaparken)
+        val scrollToFocused: (View) -> Unit = { v ->
+            v.post {
+                val rect = android.graphics.Rect()
+                v.getDrawingRect(rect)
+                scrollView?.offsetDescendantRectToMyCoords(v, rect)
+                scrollView?.smoothScrollTo(0, rect.bottom)
+            }
+        }
+
 
         binding.imageView.setOnClickListener { gorselSec(it) }
         binding.kaydetbutton.setOnClickListener { kaydet(it) }
